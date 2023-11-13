@@ -24,7 +24,7 @@
    또한, Player에 주입받고 있으나 context 관점에서 Game에 주입하는 것이 맞다
 5. new로 객체를 주입할 경우에는 context.class 이거나 변화가 없는 객체여야 한다.
    그렇지 않은 경우에는, 의존성 확장 할 수 있도록 변수로 객체 주입하기
-
+6. compare에서 Strike, Ball이 int []로 return되면 코드를 처음 접하는 사람들은 바로 이해하기 힘들다. Strike, Ball을 카운트 하는 메소드 분리해야 한다.
 
 ## UML
 
