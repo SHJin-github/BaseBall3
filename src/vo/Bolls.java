@@ -14,7 +14,6 @@ public class Bolls {
 
     public Bolls() {
         this.bolls = generateRandomBolls();
-        System.out.println(bolls.toString());
     }
 
     public Bolls(String str){
