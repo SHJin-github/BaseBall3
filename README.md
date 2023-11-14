@@ -28,5 +28,5 @@
 
 ## UML
 
-![대체 텍스트](./숫자야구게임.jpg)
+![숫자야구게임](https://github.com/SHJin-github/BaseBall3/assets/119841824/f34ace97-de36-4ec1-b5f7-4bd03321cb55)
 
