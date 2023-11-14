@@ -1,14 +1,15 @@
-package vo;
+package Rules;
 
-public class Rules {
+public class BaseBollRules implements Rules {
 
     private static final int START_GAME = 1;
     private static final int END_GAME = 2;
-
-    public Rules() {
+    private static final String EXIT_GAME = "X";
+    @Override
+    public void printRestart() {
         System.out.println(START_GAME+". 게임시작     "+END_GAME+". 종료");
     }
-
+    @Override
     public boolean isRestart(String str) {
         int num = convertStrToNum(str);
         validateBolls(num);
@@ -16,10 +17,17 @@ public class Rules {
         if (num == START_GAME) {
             return true;
         } else {
-            System.out.println("게입을 종료합니다");
+            System.out.println("게임을 종료합니다");
             return false;
         }
 
+    }
+
+    @Override
+    public void wantExitGame(String str) {
+        if(str.equalsIgnoreCase(EXIT_GAME)){
+            System.exit(0);
+        }
     }
 
     private int convertStrToNum(String str){

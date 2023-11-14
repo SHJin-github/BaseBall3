@@ -18,7 +18,7 @@ public class Bolls {
 
     public Bolls(String str){
         this.bolls = new ArrayList<>();
-        converStrToBoll(str);
+        convertStrToBoll(str);
         validateBolls();
     }
 
@@ -31,10 +31,11 @@ public class Bolls {
                 result.add(boll);
             }
         }
+        System.out.println(result);
         return result;
     }
 
-    private void converStrToBoll(String str){
+    private void convertStrToBoll(String str){
         for (int i = 0; i < str.length(); i++) {
             char digitChar = str.charAt(i);
             int digit = Character.getNumericValue(digitChar);
@@ -73,19 +74,30 @@ public class Bolls {
         return false;
     }
 
-    public int[] compare(Bolls computer, Bolls player){
+    public int countStrike(Bolls computer, Bolls player){
         List<Integer> com = computer.getBolls();
         List<Integer> play = player.getBolls();
-        int[] count = new int[2];
+        int strikes = 0;
         for (int i = 0; i < com.size(); i++) {
             if (com.get(i).equals(play.get(i))) {
-                count[0] += 1; //스트라이크++
-            } else if (play.contains(com.get(i))) {
-                count[1] += 1; //볼++
+                strikes++;
             }
         }
-        return count;
+        return strikes;
     }
+
+    public int countBall(Bolls computer, Bolls player){
+        List<Integer> com = computer.getBolls();
+        List<Integer> play = player.getBolls();
+        int balls = 0;
+        for (int i = 0; i < com.size(); i++) {
+            if (!com.get(i).equals(play.get(i)) && play.contains(com.get(i))) {
+                balls++;
+            }
+        }
+        return balls;
+    }
+
 
     private List<Integer> getBolls() {
         return bolls;

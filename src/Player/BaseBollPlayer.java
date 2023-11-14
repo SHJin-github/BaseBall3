@@ -1,7 +1,7 @@
 package Player;
 
+import Rules.Rules;
 import vo.Bolls;
-import vo.Rules;
 
 import java.util.Scanner;
 
@@ -9,8 +9,11 @@ public class BaseBollPlayer implements Player{
 
     private final Scanner scanner;
 
-    public BaseBollPlayer() {
+    private Rules rules;
+
+    public BaseBollPlayer(Rules rules) {
         this.scanner = new Scanner(System.in);
+        this.rules = rules;
     }
 
     @Override
@@ -19,6 +22,7 @@ public class BaseBollPlayer implements Player{
         while (true) {
             try {
                 String str = scanner.nextLine();
+                rules.wantExitGame(str);
                 bolls = new Bolls(str);
                 break;
             } catch (IllegalArgumentException e) {
@@ -30,8 +34,8 @@ public class BaseBollPlayer implements Player{
 
     @Override
     public boolean wantGame() {
-        Rules rules = new Rules();
         while (true){
+            rules.printRestart();
             try {
                 return rules.isRestart(scanner.nextLine());
             } catch (IllegalArgumentException e) {

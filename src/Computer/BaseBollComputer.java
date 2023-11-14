@@ -2,7 +2,7 @@ package Computer;
 
 import vo.Bolls;
 
-public class BaseBallComputer implements Computer{
+public class BaseBollComputer implements Computer{
 
     @Override
     public Bolls generateAnswer() {

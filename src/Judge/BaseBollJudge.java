@@ -14,9 +14,8 @@ public class BaseBollJudge implements Judge{
     }
 
     private void countStrikeAndBall(Bolls computer, Bolls player){
-        int[] strikeAndBall = computer.compare(computer,player);
-        strikes = strikeAndBall[0];
-        balls = strikeAndBall[1];
+        strikes = computer.countStrike(computer,player);
+        balls = computer.countBall(computer,player);
 
         printResult();
     }
